@@ -11,41 +11,7 @@ const stats = [
   { value: 24, label: "Hour Support", suffix: "/7" },
 ];
 
-function AnimatedCounter({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    if (inView) {
-      let start = 0;
-      const end = value;
-      const duration = 2000;
-      const incrementTime = Math.abs(Math.floor(duration / end));
-
-      const timer = setInterval(() => {
-        start += 1;
-        setCount(start);
-        if (start === end) clearInterval(timer);
-      }, incrementTime);
-
-      return () => clearInterval(timer);
-    } else {
-      setCount(0); // Reset when out of view
-    }
-  }, [inView, value]);
-
-  return (
-    <div className="flex flex-col">
-      <span className="stat-number text-transparent bg-clip-text bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)]">
-        {count}{suffix}
-      </span>
-      <span className="text-[var(--text-muted)] font-medium text-sm md:text-base mt-2">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-// Fixed the AnimatedCounter usage by moving label prop manually to render or adjust prop signature
 function StatItem({ value, label, suffix, inView }: { value: number; label: string; suffix: string; inView: boolean }) {
   const [count, setCount] = useState(0);
 
