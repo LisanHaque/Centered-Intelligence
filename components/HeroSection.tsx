@@ -16,7 +16,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   // Text animation variants
-  const containerVariants = {
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -24,12 +24,12 @@ export default function HeroSection() {
     },
   };
 
-  const childVariants = {
+  const childVariants: any = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
-  const bounceVariants = {
+  const bounceVariants: any = {
     animate: {
       y: [0, 10, 0],
       transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },

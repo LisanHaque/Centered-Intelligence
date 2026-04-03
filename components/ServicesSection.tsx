@@ -40,7 +40,7 @@ export default function ServicesSection() {
   const isInView = useInView(ref, { once: false, amount: 0.1 });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  const containerVariants = {
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -50,7 +50,7 @@ export default function ServicesSection() {
     },
   };
 
-  const cardVariants = {
+  const cardVariants: any = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
